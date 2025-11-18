@@ -13,7 +13,7 @@ class SparkBenchmark(BaseBenchmark):
     def _read_multiple_csv_files(self):
         """Read multiple CSV files based on configuration."""
 
-        return self.spark.read.csv(self.data_config.files, header=True, inferSchema=True)
+        return self.spark.read.csv(self.data_config.base_dir, header=True, inferSchema=True)
 
     def group_by_model(self):
         """

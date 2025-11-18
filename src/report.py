@@ -31,7 +31,7 @@ class BenchmarkReporter:
         date_now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
         for exp in run_result:
-            if "engine_config" in exp:
+            if exp["engine_config"] is not None:
                 cpu = exp["engine_config"]["cpu_count"]
                 mem = exp["engine_config"]["memory_limit_gb"]
             else:

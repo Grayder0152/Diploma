@@ -14,8 +14,8 @@ class SparkEngine(BaseEngine):
     name = EnginesEnum.SPARK.value
     spark: Optional[SparkSession] = None
 
-    def __init__(self, config: BenchmarksConfig):
-        super().__init__(config=config)
+    # def __init__(self, config: BenchmarksConfig):
+    #     super().__init__(config=config)
 
     def __enter__(self):
         if self.cfg.engine_config is not None:
@@ -28,10 +28,10 @@ class SparkEngine(BaseEngine):
                 .config("spark.default.parallelism", self.cfg.engine_config.default_parallelism or 16)
                 .getOrCreate()
             )
+            self.spark.sparkContext.setLogLevel('ERROR')
         else:
-            self.spark = SparkSession.getActiveSession()
+            self.spark = SparkSession.builder.getOrCreate()
 
-        self.spark.sparkContext.setLogLevel('ERROR')
         self.benchmarks = [SparkBenchmark(data_config, self.cfg.tasks,self.spark) for data_config in self.cfg.data_configs]
 
         return self
