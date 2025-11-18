@@ -20,12 +20,13 @@ class PolarsEngine(BaseEngine):
         """Configure thread count and lazy mode for Polars."""
 
         self.benchmarks = [PolarsBenchmark(data_config, self.cfg.tasks) for data_config in self.cfg.data_configs]
-        if self.cfg.engine_config.cpu_count:
-            n_threads = self.cfg.engine_config.cpu_count * 2
-            os.environ["POLARS_MAX_THREADS"] = str(n_threads)
+        if self.cfg.engines is not None:
+            if self.cfg.engine_config.cpu_count:
+                n_threads = self.cfg.engine_config.cpu_count * 2
+                os.environ["POLARS_MAX_THREADS"] = str(n_threads)
 
-        if self.cfg.engine_config.lazy_mode:
-            pl.Config.set_tbl_formatting("UTF8_FULL")
+            if self.cfg.engine_config.lazy_mode:
+                pl.Config.set_tbl_formatting("UTF8_FULL")
 
         return self
 

@@ -1,0 +1,23 @@
+[
+  {
+    "name": "case_1",
+    "engines": [
+      "polars",
+      "spark"
+    ],
+    "engine_config": {
+      "cpu_count": 16,
+      "memory_limit_gb": 64,
+      "lazy_mode": true
+    },
+    "data_configs": [
+      {
+        "base_dir": "../data/backblaze_drive",
+        "n_files": 270
+      }
+    ],
+    "tasks": [
+      "join_adjacent_days", "union_and_aggregate", "group_by_model"
+    ]
+  }
+]

@@ -31,8 +31,12 @@ class BenchmarkReporter:
         date_now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
         for exp in run_result:
-            cpu = exp["engine_config"]["cpu_count"]
-            mem = exp["engine_config"]["memory_limit_gb"]
+            if "engine_config" in exp:
+                cpu = exp["engine_config"]["cpu_count"]
+                mem = exp["engine_config"]["memory_limit_gb"]
+            else:
+                cpu = None
+                mem = None
 
             for benchmark in exp["benchmarks"]:
                 engine = benchmark["engine"]
@@ -74,8 +78,8 @@ class BenchmarkReporter:
 
         pivot["polars(s)"] = pivot["polars"]
         pivot["spark(s)"] = pivot["spark"]
-        pivot["speedup (Spark/Polars)"] = pivot["spark"] / pivot["polars"]
-        pivot["speedup (Polars/Spark)"] = pivot["polars"] / pivot["spark"]
+        pivot["speedup (Spark/Polars)"] = (pivot["spark"] / pivot["polars"]).round(3)
+        pivot["speedup (Polars/Spark)"] = (pivot["polars"] / pivot["spark"]).round(3)
         pivot["engine_win"] = pivot.apply(
             lambda r: "spark" if r["spark"] < r["polars"] else "polars", axis=1
         )

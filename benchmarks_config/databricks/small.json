@@ -1,0 +1,17 @@
+[
+  {
+    "name": "case_1",
+    "engines": [
+      "polars", "spark"
+    ],
+    "data_configs": [
+      {
+        "base_dir": "../data/backblaze_drive/2023/Q1",
+        "n_files": 10
+      }
+    ],
+    "tasks": [
+      "*"
+    ]
+  }
+]

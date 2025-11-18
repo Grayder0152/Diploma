@@ -18,15 +18,19 @@ class SparkEngine(BaseEngine):
         super().__init__(config=config)
 
     def __enter__(self):
-        self.spark = (
-            SparkSession.builder
-            .config("spark.ui.showConsoleProgress", "false")
-            .config("spark.executor.instances", self.cfg.engine_config.cpu_count)
-            .config("spark.executor.memory", f"{self.cfg.engine_config.memory_limit_gb // self.cfg.engine_config.cpu_count}g")
-            .config("spark.sql.shuffle.partitions", self.cfg.engine_config.partition_count or 16)
-            .config("spark.default.parallelism", self.cfg.engine_config.default_parallelism or 16)
-            .getOrCreate()
-        )
+        if self.cfg.engine_config is not None:
+            self.spark = (
+                SparkSession.builder
+                .config("spark.ui.showConsoleProgress", "false")
+                .config("spark.executor.instances", self.cfg.engine_config.cpu_count)
+                .config("spark.executor.memory", f"{self.cfg.engine_config.memory_limit_gb // self.cfg.engine_config.cpu_count}g")
+                .config("spark.sql.shuffle.partitions", self.cfg.engine_config.partition_count or 16)
+                .config("spark.default.parallelism", self.cfg.engine_config.default_parallelism or 16)
+                .getOrCreate()
+            )
+        else:
+            self.spark = SparkSession.getActiveSession()
+
         self.spark.sparkContext.setLogLevel('ERROR')
         self.benchmarks = [SparkBenchmark(data_config, self.cfg.tasks,self.spark) for data_config in self.cfg.data_configs]
 

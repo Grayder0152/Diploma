@@ -69,7 +69,7 @@ class BenchmarksManager:
 
         for config_idx, config in enumerate(self.configs, start=1):
             self.logger.info(f"[CONFIG {config_idx}] Loaded benchmark config:\n{config}")
-            engine_result = {"engine_config": config.engine_config.to_dict(), "benchmarks": []}
+            engine_result = {"engine_config": config.engine_config.to_dict() if config.engine_config else None, "benchmarks": []}
 
             if EnginesEnum.SPARK.value in config.engines:
                 self.logger.info(f"[CONFIG {config_idx}] Starting Spark experiment...")
@@ -110,7 +110,7 @@ class BenchmarksManager:
 
 
 if __name__ == '__main__':
-    cfg = BenchmarksConfig.load_from_json("../benchmarks.json")
+    cfg = BenchmarksConfig.load_from_json("../benchmarks_config/local/benchmarks_huge.json")
     manager = BenchmarksManager(configs=cfg)
     result = manager.run()
     pprint(result)

@@ -72,15 +72,15 @@ class BenchmarksConfig:
 
     name: str
     engines: list[EnginesEnum]
-    engine_config: EngineConfig
     data_configs: list[DataConfig]
     tasks: list[str]
+    engine_config: Optional[EngineConfig] = None
 
     @classmethod
     def from_dict(cls, data: dict[str, Any]) -> BenchmarksConfig:
         """Parse experiment configuration from dictionary (e.g., loaded JSON)."""
 
-        engine = EngineConfig(**data["engine_config"])
+        engine = EngineConfig(**data["engine_config"]) if "engine_config" in data else None
         datasets = [DataConfig(**d) for d in data["data_configs"]]
         return cls(
             name=data["name"],
