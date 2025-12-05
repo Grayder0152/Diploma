@@ -1,16 +1,99 @@
-[
-  {
-    "name": "case_1",
-    "engines": [
-      "spark"
-    ],
-    "data_configs": [
-      {
-        "base_dir": "abfss://backblaze@diplomadata.dfs.core.windows.net/data/backblaze_drive/2023/Q1/*.csv"
-      }
-    ],
-    "tasks": [
-      "*"
-    ]
+{
+  'cluster_id': '1113-180405-or7sb1l7',
+  'creator_user_name': 'derevianko_s@365.dnu.edu.ua',
+  'driver': {
+    'private_ip': '10.139.64.4',
+    'public_dns': '74.234.34.247',
+    'node_id': '7ca698c806054c29ac7aefab11ad8bab',
+    'instance_id': 'a848b09a18254e349ad8e1f7411fac65',
+    'start_timestamp': 1763587240405,
+    'node_type_id': 'Standard_D8s_v3',
+    'node_attributes': {
+      'is_spot': False
+    },
+    'host_private_ip': '10.139.0.4'
+  },
+  'executors': [
+    {
+      'private_ip': '10.139.64.5',
+      'public_dns': '20.67.235.252',
+      'node_id': 'f4a134e5bf5d428796e7a8574d92ce4b',
+      'instance_id': '4b2f44a8599141efa2d62951f9e4ca7f',
+      'start_timestamp': 1763587240439,
+      'node_type_id': 'Standard_D8s_v3',
+      'node_attributes': {
+        'is_spot': False
+      },
+      'host_private_ip': '10.139.0.5'
+    }
+  ],
+  'spark_context_id': 8420200205410652864,
+  'driver_healthy': True,
+  'jdbc_port': 10000,
+  'cluster_name': 'small_cluster',
+  'spark_version': '13.3.x-scala2.12',
+  'azure_attributes': {
+    'first_on_demand': 1,
+    'availability': 'SPOT_WITH_FALLBACK_AZURE',
+    'spot_bid_max_price': -1.0
+  },
+  'node_type_id': 'Standard_D8s_v3',
+  'driver_node_type_id': 'Standard_D8s_v3',
+  'autotermination_minutes': 10,
+  'enable_elastic_disk': True,
+  'disk_spec': {},
+  'cluster_source': 'UI',
+  'single_user_name': 'derevianko_s@365.dnu.edu.ua',
+  'enable_local_disk_encryption': False,
+  'instance_source': {
+    'node_type_id': 'Standard_D8s_v3'
+  },
+  'driver_instance_source': {
+    'node_type_id': 'Standard_D8s_v3'
+  },
+  'data_security_mode': 'SINGLE_USER',
+  'runtime_engine': 'STANDARD',
+  'effective_spark_version': '13.3.x-scala2.12',
+  'kind': 'CLASSIC_PREVIEW',
+  'is_single_node': False,
+  'assigned_principal': 'user:derevianko_s@365.dnu.edu.ua',
+  'release_version': '13.3.50',
+  'state': 'RUNNING',
+  'state_message': '',
+  'start_time': 1763057045412,
+  'last_state_loss_time': 1763587314071,
+  'last_activity_time': 1763587315930,
+  'last_restarted_time': 1763587314148,
+  'autoscale': {
+    'min_workers': 1,
+    'max_workers': 2,
+    'target_workers': 1
+  },
+  'cluster_memory_mb': 65536,
+  'cluster_cores': 16.0,
+  'default_tags': {
+    'Vendor': 'Databricks',
+    'Creator': 'derevianko_s@365.dnu.edu.ua',
+    'ClusterName': 'small_cluster',
+    'ClusterId': '1113-180405-or7sb1l7'
+  },
+  'init_scripts_safe_mode': False,
+  'spec': {
+    'cluster_name': 'small_cluster',
+    'spark_version': '13.3.x-scala2.12',
+    'azure_attributes': {
+      'availability': 'SPOT_WITH_FALLBACK_AZURE'
+    },
+    'node_type_id': 'Standard_D8s_v3',
+    'autotermination_minutes': 10,
+    'single_user_name': 'derevianko_s@365.dnu.edu.ua',
+    'data_security_mode': 'DATA_SECURITY_MODE_AUTO',
+    'runtime_engine': 'STANDARD',
+    'kind': 'CLASSIC_PREVIEW',
+    'is_single_node': False,
+    'autoscale': {
+      'min_workers': 1,
+      'max_workers': 2
+    }
   }
-]
+}

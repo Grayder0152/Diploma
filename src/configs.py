@@ -17,21 +17,22 @@ class DataConfig:
 
     base_dir: str
     n_files: Optional[int] = None
-    shuffle: bool = False
+
     files: list[str] = field(default_factory=list)
 
-    # def __post_init__(self):
-    #     self.files = self._list_csv_files()
+    def __post_init__(self):
+        self.files = self._list_csv_files()
 
-    # def _list_csv_files(self) -> list[str]:
-    #     """Recursively list CSV files under base_dir."""
+    def _list_csv_files(self) -> list[str]:
+        """Recursively list CSV files under base_dir."""
 
-    #     pattern = os.path.join(self.base_dir, "**", "*.csv")
-    #     all_files = glob(pattern, recursive=True)
-    #     if not all_files: raise FileNotFoundError(f"No CSV files found in {self.base_dir}")
-    #     if self.shuffle: random.shuffle(all_files)
-    #     if self.n_files: all_files = all_files[: self.n_files]
-    #     return all_files
+        pattern = os.path.join(self.base_dir, "**", "*.csv")
+        all_files = glob(pattern, recursive=True)
+        if not all_files:
+            raise FileNotFoundError(f"No CSV files found in {self.base_dir}")
+        if self.n_files:
+            all_files = all_files[: self.n_files]
+        return all_files
 
     def __repr__(self):
         return f"{self.__class__.__name__}(base_dir={self.base_dir!r}, n_files={self.n_files!r})"
@@ -73,22 +74,12 @@ class BenchmarksConfig:
     name: str
     engines: list[EnginesEnum]
     data_configs: list[DataConfig]
+    engine_config: EngineConfig
     tasks: list[str]
-    engine_config: Optional[EngineConfig] = None
 
     @classmethod
     def from_dict(cls, data: dict[str, Any]) -> BenchmarksConfig:
-        """Parse experiment configuration from dictionary (e.g., loaded JSON)."""
-
-        engine = EngineConfig(**data["engine_config"]) if "engine_config" in data else None
-        datasets = [DataConfig(**d) for d in data["data_configs"]]
-        return cls(
-            name=data["name"],
-            engines=data["engines"],
-            engine_config=engine,
-            data_configs=datasets,
-            tasks=data.get("tasks", []),
-        )
+        raise NotImplementedError()
 
     @classmethod
     def load_from_json(cls, path: str) -> list[BenchmarksConfig]:
@@ -101,3 +92,38 @@ class BenchmarksConfig:
             raise ValueError("Root JSON element must be a list of experiments")
 
         return [cls.from_dict(item) for item in raw_data]
+
+
+@dataclass
+class DatabricksBenchmarksConfig(BenchmarksConfig):
+
+    @classmethod
+    def from_dict(cls, data: dict[str, Any]) -> BenchmarksConfig:
+        """Parse experiment configuration from dictionary (e.g., loaded JSON)."""
+
+        engine = EngineConfig(cpu_count=0, memory_limit_gb=0)
+        datasets = [DataConfig(**d) for d in data["data_configs"]]
+        return cls(
+            name=data["name"],
+            engines=data["engines"],
+            engine_config=engine,
+            data_configs=datasets,
+            tasks=data.get("tasks", []),
+        )
+
+
+@dataclass
+class LocalBenchmarksConfig(BenchmarksConfig):
+    @classmethod
+    def from_dict(cls, data: dict[str, Any]) -> BenchmarksConfig:
+        """Parse experiment configuration from dictionary (e.g., loaded JSON)."""
+
+        engine = EngineConfig(**data["engine_config"])
+        datasets = [DataConfig(**d) for d in data["data_configs"]]
+        return cls(
+            name=data["name"],
+            engines=data["engines"],
+            engine_config=engine,
+            data_configs=datasets,
+            tasks=data.get("tasks", []),
+        )
