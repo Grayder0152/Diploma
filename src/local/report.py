@@ -4,8 +4,8 @@ import pandas as pd
 from datetime import datetime
 from typing import Any
 
-from src.logger import Logger
-from src.settings import REPORT_FOLDER_NAME
+from src.local.logger import Logger
+from src.local.settings import REPORT_FOLDER_NAME
 
 
 class BenchmarkReporter:

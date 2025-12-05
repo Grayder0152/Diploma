@@ -2,10 +2,9 @@ from typing import Optional
 
 from pyspark.sql import SparkSession
 
-from src.benchmarks.bm_spark import SparkBenchmark
-from src.configs import BenchmarksConfig
-from src.engines.en_base import BaseEngine
-from src.settings import EnginesEnum
+from src.local.benchmarks.bm_spark import SparkBenchmark
+from src.local.engines.en_base import BaseEngine
+from src.local.settings import EnginesEnum
 
 
 class SparkEngine(BaseEngine):

@@ -1,5 +1,5 @@
 import polars as pl
-from src.benchmarks.bm_base import BaseBenchmark
+from src.local.benchmarks.bm_base import BaseBenchmark
 
 
 class PolarsBenchmark(BaseBenchmark):

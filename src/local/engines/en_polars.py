@@ -2,10 +2,10 @@ import os
 
 import polars as pl
 
-from src.benchmarks.bm_polars import PolarsBenchmark
-from src.configs import BenchmarksConfig
-from src.engines.en_base import BaseEngine
-from src.settings import EnginesEnum
+from src.local.benchmarks.bm_polars import PolarsBenchmark
+from src.local.configs import BenchmarksConfig
+from src.local.engines.en_base import BaseEngine
+from src.local.settings import EnginesEnum
 
 
 class PolarsEngine(BaseEngine):

@@ -3,15 +3,15 @@ import traceback
 from pprint import pprint
 from typing import Any
 
-from src.benchmarks.bm_base import BaseBenchmark
-from src.configs import BenchmarksConfig
-from src.engines.en_base import BaseEngine
-from src.engines.en_polars import PolarsEngine
-from src.engines.en_spark import SparkEngine
-from src.logger import Logger
-from src.metrics import measure_time
-from src.report import BenchmarkReporter
-from src.settings import EnginesEnum, REPORT_FILE_NAME
+from src.local.benchmarks.bm_base import BaseBenchmark
+from src.local.configs import BenchmarksConfig
+from src.local.engines.en_base import BaseEngine
+from src.local.engines.en_polars import PolarsEngine
+from src.local.engines.en_spark import SparkEngine
+from src.local.logger import Logger
+from src.local.metrics import measure_time
+from src.local.report import BenchmarkReporter
+from src.local.settings import EnginesEnum, REPORT_FILE_NAME
 
 
 class BenchmarksManager:

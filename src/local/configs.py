@@ -2,13 +2,12 @@ from __future__ import annotations
 
 import json
 import os
-import random
 
 from dataclasses import dataclass, field
 from glob import glob
 from typing import Any, Optional
 
-from src.settings import EnginesEnum
+from src.local.settings import EnginesEnum
 
 
 @dataclass

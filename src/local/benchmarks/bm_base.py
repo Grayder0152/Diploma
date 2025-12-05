@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 
-from src.configs import DataConfig
+from src.local.configs import DataConfig
 
 
 class BaseBenchmark(ABC):

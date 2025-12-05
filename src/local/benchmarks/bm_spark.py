@@ -1,6 +1,6 @@
 from pyspark.sql import SparkSession, functions as f
-from src.benchmarks.bm_base import BaseBenchmark
-from src.configs import DataConfig
+from src.local.benchmarks.bm_base import BaseBenchmark
+from src.local.configs import DataConfig
 
 
 class SparkBenchmark(BaseBenchmark):

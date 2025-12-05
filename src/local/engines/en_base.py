@@ -1,8 +1,8 @@
 from abc import ABC, abstractmethod
 from typing import Optional
 
-from src.benchmarks.bm_base import BaseBenchmark
-from src.configs import BenchmarksConfig
+from src.local.benchmarks.bm_base import BaseBenchmark
+from src.local.configs import BenchmarksConfig
 
 
 class BaseEngine(ABC):
