@@ -7,7 +7,7 @@ from dataclasses import dataclass, field
 from glob import glob
 from typing import Any, Optional
 
-from src.local.settings import EnginesEnum
+from src.local.settings import EnginesEnum, ROOT_FOLDER
 
 
 @dataclass
@@ -34,12 +34,34 @@ class DataConfig:
         return all_files
 
     def __repr__(self):
-        return f"{self.__class__.__name__}(base_dir={self.base_dir!r}, n_files={self.n_files!r})"
+        return f"{self.__class__.__name__}(base_dir={self.base_dir!r}, n_files={self.n_files!r}, size={self.size!r})"
 
     def to_dict(self) -> dict[str, Any]:
         """Convert config to dictionary."""
 
-        return {"base_dir": self.base_dir, "n_files": self.n_files}
+        return {"base_dir": self.base_dir, "size": self.size}
+
+    @property
+    def size(self) -> int:
+        """Return folder size in GB (including subfolders)."""
+
+        max_files = self.n_files
+        path = os.path.join(ROOT_FOLDER, self.base_dir)
+        total_size = 0
+
+        for root, dirs, files in os.walk(path):
+            for f in files:
+                fp = os.path.join(root, f)
+
+                if not os.path.exists(fp):
+                    continue
+
+                total_size += os.path.getsize(fp)
+                max_files -= 1
+                if max_files <= 0:
+                    return round(total_size / 1024 ** 3, 2)
+
+        return round(total_size / 1024 ** 3, 2)
 
 
 @dataclass
@@ -78,7 +100,17 @@ class BenchmarksConfig:
 
     @classmethod
     def from_dict(cls, data: dict[str, Any]) -> BenchmarksConfig:
-        raise NotImplementedError()
+        """Parse experiment configuration from dictionary (e.g., loaded JSON)."""
+
+        engine = EngineConfig(**data["engine_config"])
+        datasets = [DataConfig(**d) for d in data["data_configs"]]
+        return cls(
+            name=data["name"],
+            engines=data["engines"],
+            engine_config=engine,
+            data_configs=datasets,
+            tasks=data.get("tasks", []),
+        )
 
     @classmethod
     def load_from_json(cls, path: str) -> list[BenchmarksConfig]:
@@ -91,38 +123,3 @@ class BenchmarksConfig:
             raise ValueError("Root JSON element must be a list of experiments")
 
         return [cls.from_dict(item) for item in raw_data]
-
-
-@dataclass
-class DatabricksBenchmarksConfig(BenchmarksConfig):
-
-    @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> BenchmarksConfig:
-        """Parse experiment configuration from dictionary (e.g., loaded JSON)."""
-
-        engine = EngineConfig(cpu_count=0, memory_limit_gb=0)
-        datasets = [DataConfig(**d) for d in data["data_configs"]]
-        return cls(
-            name=data["name"],
-            engines=data["engines"],
-            engine_config=engine,
-            data_configs=datasets,
-            tasks=data.get("tasks", []),
-        )
-
-
-@dataclass
-class LocalBenchmarksConfig(BenchmarksConfig):
-    @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> BenchmarksConfig:
-        """Parse experiment configuration from dictionary (e.g., loaded JSON)."""
-
-        engine = EngineConfig(**data["engine_config"])
-        datasets = [DataConfig(**d) for d in data["data_configs"]]
-        return cls(
-            name=data["name"],
-            engines=data["engines"],
-            engine_config=engine,
-            data_configs=datasets,
-            tasks=data.get("tasks", []),
-        )

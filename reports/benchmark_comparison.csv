@@ -1,65 +1,65 @@
-date,cpu_count,memory_gb,n_files,base_dir,task,polars(s),spark(s),engine_win,speedup (Spark/Polars),speedup (Polars/Spark)
-2025-10-17 00:52:13,2,8,10,../data/backblaze_drive/2023/Q1,group_by_model,3.3493,9.5999,polars,2.866240707013406,0.34888905092761385
-2025-10-17 00:52:13,2,8,10,../data/backblaze_drive/2023/Q1,join_adjacent_days,0.6314,2.5591,polars,4.053056699398163,0.2467273650892892
-2025-10-17 00:52:13,2,8,10,../data/backblaze_drive/2023/Q1,quarterly_stats,3.159,8.8218,polars,2.7925925925925927,0.35809018567639256
-2025-10-17 00:52:13,2,8,10,../data/backblaze_drive/2023/Q1,union_and_aggregate,3.3125,8.5054,polars,2.567667924528302,0.389458461683166
-2025-10-17 00:52:13,2,8,30,../data/backblaze_drive/2023/Q1,group_by_model,9.3629,25.2456,polars,2.6963440814277626,0.3708725480875875
-2025-10-17 00:52:13,2,8,30,../data/backblaze_drive/2023/Q1,join_adjacent_days,0.6373,2.452,polars,3.847481562843245,0.25991027732463295
-2025-10-17 00:52:13,2,8,30,../data/backblaze_drive/2023/Q1,quarterly_stats,9.2186,24.1585,polars,2.620625691536676,0.3815882608605667
-2025-10-17 00:52:13,2,8,30,../data/backblaze_drive/2023/Q1,union_and_aggregate,9.0346,23.2853,polars,2.577347087862219,0.3879958600490438
-2025-10-17 00:52:13,2,8,90,../data/backblaze_drive/2023/Q1,group_by_model,29.9141,70.253,polars,2.3484911797446686,0.42580530368809877
-2025-10-17 00:52:13,2,8,90,../data/backblaze_drive/2023/Q1,join_adjacent_days,0.6341,2.5803,polars,4.06923198233717,0.24574661861023914
-2025-10-17 00:52:13,2,8,90,../data/backblaze_drive/2023/Q1,quarterly_stats,28.0967,64.3148,polars,2.289051739172216,0.4368621219377188
-2025-10-17 00:52:13,2,8,90,../data/backblaze_drive/2023/Q1,union_and_aggregate,29.0699,65.6973,polars,2.259976814505726,0.4424824155635011
-2025-10-17 00:52:13,2,8,270,../data/backblaze_drive/2023/,group_by_model,95.732,198.0106,polars,2.068384657167927,0.48346906680753454
-2025-10-17 00:52:13,2,8,270,../data/backblaze_drive/2023/,join_adjacent_days,0.6612,2.7997,polars,4.234271022383545,0.2361681608743794
-2025-10-17 00:52:13,2,8,270,../data/backblaze_drive/2023/,quarterly_stats,0.0,199.2462,polars,inf,0.0
-2025-10-17 00:52:13,2,8,270,../data/backblaze_drive/2023/,union_and_aggregate,95.087,196.4243,polars,2.065732434507346,0.4840897994800033
-2025-10-17 00:52:13,4,16,10,../data/backblaze_drive/2023/Q1,group_by_model,3.1213,9.013,polars,2.887578893409797,0.34631088427826473
-2025-10-17 00:52:13,4,16,10,../data/backblaze_drive/2023/Q1,join_adjacent_days,0.6278,2.5393,polars,4.044759477540618,0.24723348954436264
-2025-10-17 00:52:13,4,16,10,../data/backblaze_drive/2023/Q1,quarterly_stats,3.0427,8.3344,polars,2.7391461530877184,0.365077270109426
-2025-10-17 00:52:13,4,16,10,../data/backblaze_drive/2023/Q1,union_and_aggregate,2.947,8.7096,polars,2.9554122836783168,0.3383622669238541
-2025-10-17 00:52:13,4,16,30,../data/backblaze_drive/2023/Q1,group_by_model,8.9199,24.197,polars,2.7126985728539554,0.36863660784394764
-2025-10-17 00:52:13,4,16,30,../data/backblaze_drive/2023/Q1,join_adjacent_days,0.6005,2.5728,polars,4.284429641965029,0.2334032960199005
-2025-10-17 00:52:13,4,16,30,../data/backblaze_drive/2023/Q1,quarterly_stats,8.9652,25.0047,polars,2.7890844599116584,0.35854059436825875
-2025-10-17 00:52:13,4,16,30,../data/backblaze_drive/2023/Q1,union_and_aggregate,9.1396,24.8975,polars,2.7241345354282465,0.3670890651671854
-2025-10-17 00:52:13,4,16,90,../data/backblaze_drive/2023/Q1,group_by_model,27.1054,68.8788,polars,2.5411467825599328,0.3935231159660157
-2025-10-17 00:52:13,4,16,90,../data/backblaze_drive/2023/Q1,join_adjacent_days,0.6151,2.6913,polars,4.375386116078687,0.22855125775647456
-2025-10-17 00:52:13,4,16,90,../data/backblaze_drive/2023/Q1,quarterly_stats,27.4655,66.6434,polars,2.4264404434654385,0.41212633208989935
-2025-10-17 00:52:13,4,16,90,../data/backblaze_drive/2023/Q1,union_and_aggregate,27.3995,64.0084,polars,2.3361156225478563,0.4280610044931603
-2025-10-17 00:52:13,4,16,270,../data/backblaze_drive/2023/,group_by_model,91.0645,191.3257,polars,2.1009910557901272,0.47596585299308974
-2025-10-17 00:52:13,4,16,270,../data/backblaze_drive/2023/,join_adjacent_days,0.8403,2.3616,polars,2.8104248482684757,0.3558180894308943
-2025-10-17 00:52:13,4,16,270,../data/backblaze_drive/2023/,quarterly_stats,0.0,187.1573,polars,inf,0.0
-2025-10-17 00:52:13,4,16,270,../data/backblaze_drive/2023/,union_and_aggregate,90.0743,188.4612,polars,2.0922860349733496,0.47794612365834455
-2025-10-17 00:52:13,8,32,10,../data/backblaze_drive/2023/Q1,group_by_model,3.2595,9.4075,polars,2.886178861788618,0.3464788732394366
-2025-10-17 00:52:13,8,32,10,../data/backblaze_drive/2023/Q1,join_adjacent_days,0.6413,2.5057,polars,3.9072197099641355,0.2559364648601189
-2025-10-17 00:52:13,8,32,10,../data/backblaze_drive/2023/Q1,quarterly_stats,3.2188,8.0184,polars,2.491114701130856,0.40142671854734113
-2025-10-17 00:52:13,8,32,10,../data/backblaze_drive/2023/Q1,union_and_aggregate,3.2233,8.5115,polars,2.640616759221915,0.3786994066850731
-2025-10-17 00:52:13,8,32,30,../data/backblaze_drive/2023/Q1,group_by_model,9.4743,22.9604,polars,2.4234402541612576,0.4126365394331109
-2025-10-17 00:52:13,8,32,30,../data/backblaze_drive/2023/Q1,join_adjacent_days,0.6156,2.405,polars,3.9067576348278097,0.255966735966736
-2025-10-17 00:52:13,8,32,30,../data/backblaze_drive/2023/Q1,quarterly_stats,9.5628,22.5677,polars,2.359946877483582,0.4237383517150618
-2025-10-17 00:52:13,8,32,30,../data/backblaze_drive/2023/Q1,union_and_aggregate,9.6136,23.8565,polars,2.481536573187984,0.40297612809926014
-2025-10-17 00:52:13,8,32,90,../data/backblaze_drive/2023/Q1,group_by_model,29.4341,66.5275,polars,2.260218590002752,0.4424350832362557
-2025-10-17 00:52:13,8,32,90,../data/backblaze_drive/2023/Q1,join_adjacent_days,0.6377,2.6312,polars,4.126078093147248,0.24236089996959562
-2025-10-17 00:52:13,8,32,90,../data/backblaze_drive/2023/Q1,quarterly_stats,28.5994,64.4901,polars,2.254945907956111,0.44346961781730837
-2025-10-17 00:52:13,8,32,90,../data/backblaze_drive/2023/Q1,union_and_aggregate,29.4111,66.3386,polars,2.2555633757322915,0.4433482165737595
-2025-10-17 00:52:13,8,32,270,../data/backblaze_drive/2023/,group_by_model,97.1436,199.1445,polars,2.0500012352846713,0.4878045841085243
-2025-10-17 00:52:13,8,32,270,../data/backblaze_drive/2023/,join_adjacent_days,0.7037,2.5485,polars,3.6215716924825925,0.2761232097312144
-2025-10-17 00:52:13,8,32,270,../data/backblaze_drive/2023/,quarterly_stats,0.0,196.9809,polars,inf,0.0
-2025-10-17 00:52:13,8,32,270,../data/backblaze_drive/2023/,union_and_aggregate,90.1355,198.1699,polars,2.198577696911872,0.45483950892643127
-2025-10-17 00:52:13,16,64,10,../data/backblaze_drive/2023/Q1,group_by_model,3.1,15.5679,polars,5.021903225806452,0.19912769223851645
-2025-10-17 00:52:13,16,64,10,../data/backblaze_drive/2023/Q1,join_adjacent_days,0.6473,3.8901,polars,6.009732735980226,0.1663967507262024
-2025-10-17 00:52:13,16,64,10,../data/backblaze_drive/2023/Q1,quarterly_stats,3.01,8.2087,polars,2.7271428571428573,0.3666841278156102
-2025-10-17 00:52:13,16,64,10,../data/backblaze_drive/2023/Q1,union_and_aggregate,3.0439,7.989,polars,2.624593449193469,0.38101139066216044
-2025-10-17 00:52:13,16,64,30,../data/backblaze_drive/2023/Q1,group_by_model,9.0575,22.5755,polars,2.492464808170025,0.40120927554206987
-2025-10-17 00:52:13,16,64,30,../data/backblaze_drive/2023/Q1,join_adjacent_days,0.6025,2.6586,polars,4.412614107883817,0.22662303467990674
-2025-10-17 00:52:13,16,64,30,../data/backblaze_drive/2023/Q1,quarterly_stats,8.9956,24.0581,polars,2.6744297211970296,0.37391148926972617
-2025-10-17 00:52:13,16,64,30,../data/backblaze_drive/2023/Q1,union_and_aggregate,8.9862,23.1167,polars,2.5724666711179367,0.3887319556857164
-2025-10-17 00:52:13,16,64,90,../data/backblaze_drive/2023/Q1,group_by_model,27.4418,65.6955,polars,2.393993834223702,0.41771201984915257
-2025-10-17 00:52:13,16,64,90,../data/backblaze_drive/2023/Q1,join_adjacent_days,0.6149,2.5273,polars,4.110099203122458,0.24330312982234006
-2025-10-17 00:52:13,16,64,90,../data/backblaze_drive/2023/Q1,quarterly_stats,27.1699,64.0328,polars,2.35675508559104,0.42431222748341474
-2025-10-17 00:52:13,16,64,90,../data/backblaze_drive/2023/Q1,union_and_aggregate,26.8373,63.4657,polars,2.3648317826308904,0.42286305831338816
-2025-10-17 00:52:13,16,64,270,../data/backblaze_drive/2023/,group_by_model,89.7744,193.8774,polars,2.159606747580602,0.4630472659526072
-2025-10-17 00:52:13,16,64,270,../data/backblaze_drive/2023/,join_adjacent_days,0.6286,2.4469,polars,3.89261851734012,0.25689648126200504
-2025-10-17 00:52:13,16,64,270,../data/backblaze_drive/2023/,quarterly_stats,0.0,193.8916,polars,inf,0.0
-2025-10-17 00:52:13,16,64,270,../data/backblaze_drive/2023/,union_and_aggregate,94.0094,187.7612,polars,1.997259848483237,0.5006859777206366
+base_dir,n_files,cpu_count,memory_gb,task,polars(s),spark(s),engine_win
+../data/backblaze_drive/2023/Q1,10,2,8,group_by_model,3.3493,9.5999,polars
+../data/backblaze_drive/2023/Q1,10,2,8,join_adjacent_days,0.6314,2.5591,polars
+../data/backblaze_drive/2023/Q1,10,2,8,quarterly_stats,3.159,8.8218,polars
+../data/backblaze_drive/2023/Q1,10,2,8,union_and_aggregate,3.3125,8.5054,polars
+../data/backblaze_drive/2023/Q1,30,2,8,group_by_model,9.3629,25.2456,polars
+../data/backblaze_drive/2023/Q1,30,2,8,join_adjacent_days,0.6373,2.452,polars
+../data/backblaze_drive/2023/Q1,30,2,8,quarterly_stats,9.2186,24.1585,polars
+../data/backblaze_drive/2023/Q1,30,2,8,union_and_aggregate,9.0346,23.2853,polars
+../data/backblaze_drive/2023/Q1,90,2,8,group_by_model,29.9141,70.253,polars
+../data/backblaze_drive/2023/Q1,90,2,8,join_adjacent_days,0.6341,2.5803,polars
+../data/backblaze_drive/2023/Q1,90,2,8,quarterly_stats,28.0967,64.3148,polars
+../data/backblaze_drive/2023/Q1,90,2,8,union_and_aggregate,29.0699,65.6973,polars
+../data/backblaze_drive/2023/,270,2,8,group_by_model,95.732,198.0106,polars
+../data/backblaze_drive/2023/,270,2,8,join_adjacent_days,0.6612,2.7997,polars
+../data/backblaze_drive/2023/,270,2,8,quarterly_stats,0.0,199.2462,spark
+../data/backblaze_drive/2023/,270,2,8,union_and_aggregate,95.087,196.4243,polars
+../data/backblaze_drive/2023/Q1,10,4,16,group_by_model,3.1213,9.013,polars
+../data/backblaze_drive/2023/Q1,10,4,16,join_adjacent_days,0.6278,2.5393,polars
+../data/backblaze_drive/2023/Q1,10,4,16,quarterly_stats,3.0427,8.3344,polars
+../data/backblaze_drive/2023/Q1,10,4,16,union_and_aggregate,2.947,8.7096,polars
+../data/backblaze_drive/2023/Q1,30,4,16,group_by_model,8.9199,24.197,polars
+../data/backblaze_drive/2023/Q1,30,4,16,join_adjacent_days,0.6005,2.5728,polars
+../data/backblaze_drive/2023/Q1,30,4,16,quarterly_stats,8.9652,25.0047,polars
+../data/backblaze_drive/2023/Q1,30,4,16,union_and_aggregate,9.1396,24.8975,polars
+../data/backblaze_drive/2023/Q1,90,4,16,group_by_model,27.1054,68.8788,polars
+../data/backblaze_drive/2023/Q1,90,4,16,join_adjacent_days,0.6151,2.6913,polars
+../data/backblaze_drive/2023/Q1,90,4,16,quarterly_stats,27.4655,66.6434,polars
+../data/backblaze_drive/2023/Q1,90,4,16,union_and_aggregate,27.3995,64.0084,polars
+../data/backblaze_drive/2023/,270,4,16,group_by_model,91.0645,191.3257,polars
+../data/backblaze_drive/2023/,270,4,16,join_adjacent_days,0.8403,2.3616,polars
+../data/backblaze_drive/2023/,270,4,16,quarterly_stats,0.0,187.1573,spark
+../data/backblaze_drive/2023/,270,4,16,union_and_aggregate,90.0743,188.4612,polars
+../data/backblaze_drive/2023/Q1,10,8,32,group_by_model,3.2595,9.4075,polars
+../data/backblaze_drive/2023/Q1,10,8,32,join_adjacent_days,0.6413,2.5057,polars
+../data/backblaze_drive/2023/Q1,10,8,32,quarterly_stats,3.2188,8.0184,polars
+../data/backblaze_drive/2023/Q1,10,8,32,union_and_aggregate,3.2233,8.5115,polars
+../data/backblaze_drive/2023/Q1,30,8,32,group_by_model,9.4743,22.9604,polars
+../data/backblaze_drive/2023/Q1,30,8,32,join_adjacent_days,0.6156,2.405,polars
+../data/backblaze_drive/2023/Q1,30,8,32,quarterly_stats,9.5628,22.5677,polars
+../data/backblaze_drive/2023/Q1,30,8,32,union_and_aggregate,9.6136,23.8565,polars
+../data/backblaze_drive/2023/Q1,90,8,32,group_by_model,29.4341,66.5275,polars
+../data/backblaze_drive/2023/Q1,90,8,32,join_adjacent_days,0.6377,2.6312,polars
+../data/backblaze_drive/2023/Q1,90,8,32,quarterly_stats,28.5994,64.4901,polars
+../data/backblaze_drive/2023/Q1,90,8,32,union_and_aggregate,29.4111,66.3386,polars
+../data/backblaze_drive/2023/,270,8,32,group_by_model,97.1436,199.1445,polars
+../data/backblaze_drive/2023/,270,8,32,join_adjacent_days,0.7037,2.5485,polars
+../data/backblaze_drive/2023/,270,8,32,quarterly_stats,0.0,196.9809,spark
+../data/backblaze_drive/2023/,270,8,32,union_and_aggregate,90.1355,198.1699,polars
+../data/backblaze_drive/2023/Q1,10,16,64,group_by_model,3.1,15.5679,polars
+../data/backblaze_drive/2023/Q1,10,16,64,join_adjacent_days,0.6473,3.8901,polars
+../data/backblaze_drive/2023/Q1,10,16,64,quarterly_stats,3.01,8.2087,polars
+../data/backblaze_drive/2023/Q1,10,16,64,union_and_aggregate,3.0439,7.989,polars
+../data/backblaze_drive/2023/Q1,30,16,64,group_by_model,9.0575,22.5755,polars
+../data/backblaze_drive/2023/Q1,30,16,64,join_adjacent_days,0.6025,2.6586,polars
+../data/backblaze_drive/2023/Q1,30,16,64,quarterly_stats,8.9956,24.0581,polars
+../data/backblaze_drive/2023/Q1,30,16,64,union_and_aggregate,8.9862,23.1167,polars
+../data/backblaze_drive/2023/Q1,90,16,64,group_by_model,27.4418,65.6955,polars
+../data/backblaze_drive/2023/Q1,90,16,64,join_adjacent_days,0.6149,2.5273,polars
+../data/backblaze_drive/2023/Q1,90,16,64,quarterly_stats,27.1699,64.0328,polars
+../data/backblaze_drive/2023/Q1,90,16,64,union_and_aggregate,26.8373,63.4657,polars
+../data/backblaze_drive/2023/,270,16,64,group_by_model,89.7744,193.8774,polars
+../data/backblaze_drive/2023/,270,16,64,join_adjacent_days,0.6286,2.4469,polars
+../data/backblaze_drive/2023/,270,16,64,quarterly_stats,0.0,193.8916,spark
+../data/backblaze_drive/2023/,270,16,64,union_and_aggregate,94.0094,187.7612,polars
